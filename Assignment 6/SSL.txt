@@ -1,0 +1,35 @@
+
+C:\Users\Lenovo>cd https-server
+
+C:\Users\Lenovo\https-server>openssl genpkey -algorithm RSA -out server.key
+..+........+.+...........+++++++++++++++++++++++++++++++++++++++*.....+.........+..+++++++++++++++++++++++++++++++++++++++*.......+.+.....+......+...+.+...........+.........+.+..............+.............+.....+.+.....+...............+.+......+.........+...........+.........+.+...+..............+...+.......+..+..........+......+.....+.............+.....++++++
+...+...+.......+...+.........+..+...+.+.........+.....+...+....+.....+...+......+.+......+.....+...+.+........+..........+...+++++++++++++++++++++++++++++++++++++++*.......+.+..+...+.+........+.+......+.....+......+.......+..+.+.....+...+.+++++++++++++++++++++++++++++++++++++++*............+......+...+..+...+.+...............+.....+.+....................+....+..+.........+...+.+.........+...............+........+....+.....+.+...............+..+...+...+............+...+.+...........+.........+.+.....+.......+..+...+.......+.........+.....+......+....+...........+.+...+..+...+.........+.......+...+...+.....+............+...+.......+......+..+.......+...+..+.......+...+.....................+............+........+..........+..+...+.......+...+......+...+.....+...+....+...+......+..+...+.+......+........+......+.............+...+.....+...+.+...+..+....+..+...................+...+..+...+......+.........+......+.........+.......+......+...+..+.........+.+..+...+.........+....+...........+.+..+.+.........+........+...+....+...+...+.....+.........+.............+.....+...+....+.....+......+......+................+...+.....................+......+..+...+.......+.....+.+.....+.+.....+......+....+........+..................+...+....+......+..+.........+......+............+...+..........+..+................+..+...+......+...+.............+............+........+.........+...+...+...+.+...+...+........+.+......+..+.+......+......+.....+.........+......+...+............+...+................+...+.....+.+..+............................+...........+......+.......+...........+.......+.....+..........+...+..............+.+......+.........+......+......+...+...........+...+..........+...+..+...+...+......+.+...+...........+..........+.....+.........+.......+..+.+..+...+.........+................+.....+......+.........+.+...+..+......+...++++++
+
+C:\Users\Lenovo\https-server>openssl req -new -key server.key -out server.csr
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+Country Name (2 letter code) [AU]:IN
+State or Province Name (full name) [Some-State]:MAHARASHTRA
+Locality Name (eg, city) []:SINNAR
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:SANJIVANI COLLEGE OF ENGINEERING
+Organizational Unit Name (eg, section) []:INFORMATION TECHNOLOGY
+Common Name (e.g. server FQDN or YOUR name) []:ABHISHEK BADADHE
+Email Address []:abhibadadhe33@gmail.com
+
+Please enter the following 'extra' attributes
+to be sent with your certificate request
+A challenge password []:Abhi@2004
+An optional company name []:KOPARGAON
+
+C:\Users\Lenovo\https-server>openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
+x509: Unknown option or message digest: outáserver.crt
+x509: Use -help for summary.
+
+C:\Users\Lenovo\https-server>openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
+Certificate request self-signature ok
+subject=C=IN, ST=MAHARASHTRA, L=SINNAR, O=SANJIVANI COLLEGE OF ENGINEERING, OU=INFORMATION TECHNOLOGY, CN=ABHISHEK BADADHE, emailAddress=abhibadadhe33@gmail.com
